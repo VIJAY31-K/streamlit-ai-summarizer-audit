@@ -9,8 +9,8 @@ import re
 # -----------------------------
 # Set up Gemini API client
 # -----------------------------
-GEMINI_API_KEY = "AIzaSyCa1SgqiXOhyMCCpik8BPJP3p_UqKFJ7Nc"  # Replace with your actual Gemini API key
-os.environ["GOOGLE_GENAI_API_KEY"] = "AIzaSyCa1SgqiXOhyMCCpik8BPJP3p_UqKFJ7Nc"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  # Replace with your actual Gemini API key
+os.environ["GOOGLE_GENAI_API_KEY"] = GEMINI_API_KEY
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # -----------------------------
@@ -418,4 +418,5 @@ def format_summary_as_markdown(filename: str, final_summary: str, chunk_summarie
         content += f"## Detailed Chunk Summaries\n\n"
         for i, chunk_summary in enumerate(chunk_summaries, 1):
             content += f"### Chunk {i}\n\n{chunk_summary}\n\n"
+
     return content
