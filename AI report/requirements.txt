@@ -1,0 +1,6 @@
+streamlit
+openai
+pdfplumber
+PyPDF2
+python-dotenv
+tiktoken
